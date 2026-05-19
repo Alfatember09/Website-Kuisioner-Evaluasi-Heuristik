@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembar Evaluasi Heuristik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HALAMAN INTRO -->
+        <div id="intro-page" class="page active">
+            <div class="card">
+                <h1>Lembar Evaluasi Heuristik</h1>
+                <div class="subtitle">Website MTs Muhammadiyah 1 Malang</div>
+                
+                <div style="font-size: 15px; text-align: justify; margin-bottom: 30px; line-height: 1.8;">
+                    <p>Kepada Yth. Bapak/Ibu/Saudara/i Evaluator,</p>
+                    <p>Dengan hormat, perkenalkan saya Muchamad Alfan Agusti Putra, mahasiswa Program Studi Sistem Informasi Fakultas Teknik dan Informatika Universitas Gajayana Malang (NIM. 22510007). Saat ini saya sedang melaksanakan penelitian skripsi yang berjudul:</p>
+                    <p style="font-weight: 600; text-align: center; color: var(--primary-blue); font-size: 16px; margin: 20px 0;">"Evaluasi Usability Website MTs Muhammadiyah 1 Malang Menggunakan Metode Heuristic Evaluation"</p>
+                    <p>Sehubungan dengan penelitian tersebut, saya memohon kesediaan Bapak/Ibu/Saudara/i untuk berpartisipasi sebagai evaluator ahli dalam proses evaluasi usability website ini. Penilaian dan temuan yang Bapak/Ibu/Saudara/i berikan akan menjadi data utama dalam penelitian ini, sehingga kejujuran, objektivitas, dan ketelitian dalam proses evaluasi sangat saya harapkan.</p>
+                    <p>Atas kesediaan dan partisipasi Bapak/Ibu/Saudara/i, saya mengucapkan terima kasih yang sebesar-besarnya. Semoga Allah membalas kebaikan Bapak/Ibu/Saudara/i dengan berlipat ganda.</p>
+                </div>
+
+                <div style="background: var(--light-blue); padding: 20px; border-radius: var(--radius-md); margin-bottom: 30px; border-left: 4px solid var(--primary-light);">
+                    <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 16px;">Informasi Peneliti</h4>
+                    <table style="font-size: 14px; color: var(--text-main);">
+                        <tr><td style="padding-right: 15px; font-weight: 500;">Nama</td><td>: Muchamad Alfan Agusti Putra</td></tr>
+                        <tr><td style="padding-right: 15px; font-weight: 500;">NIM</td><td>: 22510007</td></tr>
+                        <tr><td style="padding-right: 15px; font-weight: 500;">Prodi</td><td>: Sistem Informasi</td></tr>
+                        <tr><td style="padding-right: 15px; font-weight: 500;">Fakultas</td><td>: Teknik dan Informatika</td></tr>
+                        <tr><td style="padding-right: 15px; font-weight: 500;">Universitas</td><td>: Universitas Gajayana Malang</td></tr>
+                    </table>
+                </div>
+
+                <div style="border: 1px solid var(--border-color); padding: 25px; border-radius: var(--radius-md); margin-bottom: 30px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">Panduan Pengisian</h3>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.7;">
+                        <li>Sebelum mengisi, akses terlebih dahulu website yang akan dievaluasi di: <a href="https://mtsmuh1malang.sch.id" target="_blank" style="color: var(--teal); font-weight: 600; text-decoration: none;">https://mtsmuh1malang.sch.id</a></li>
+                        <li>Lakukan eksplorasi mandiri pada seluruh halaman website</li>
+                        <li>Catat setiap masalah usability yang ditemukan pada masing-masing prinsip heuristik</li>
+                        <li>Setiap prinsip tersedia minimal 1 baris temuan, gunakan tombol <strong style="color: var(--teal);">"+ Tambah Temuan"</strong> jika menemukan lebih dari 1 masalah</li>
+                        <li>Jika tidak menemukan masalah pada suatu prinsip, isi kolom deskripsi dengan <strong>"Tidak ada masalah"</strong> dan pilih <strong>SR = 0</strong></li>
+                        <li>Pastikan semua kolom terisi sebelum submit</li>
+                    </ul>
+                </div>
+
+                <div class="sr-legend" style="margin-bottom: 30px;">
+                    <h4>Keterangan Severity Rating (SR):</h4>
+                    <ul>
+                        <li><span class="sr-badge" style="background:#4A5568;">0</span> Bukan masalah usability</li>
+                        <li><span class="sr-badge" style="background:#4299E1;">1</span> Masalah kosmetik (prioritas rendah)</li>
+                        <li><span class="sr-badge" style="background:#ECC94B; color: #744210;">2</span> Masalah minor (perlu diperbaiki)</li>
+                        <li><span class="sr-badge" style="background:#ED8936;">3</span> Masalah mayor (penting diperbaiki)</li>
+                        <li><span class="sr-badge" style="background:#E53E3E;">4</span> Masalah kritis (wajib segera diperbaiki)</li>
+                    </ul>
+                </div>
+
+                <button type="button" id="btn-lanjut-identitas" class="btn btn-primary" style="width: 100%;">Mulai Evaluasi &rarr;</button>
+            </div>
+        </div>
+
+        <!-- HALAMAN IDENTITAS -->
+        <div id="landing-page" class="page">
+            <div class="card" style="position: relative;">
+                <button type="button" onclick="resetProgress()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--danger); font-size: 14px; cursor: pointer; text-decoration: underline;">Reset & Mulai Ulang</button>
+                <h1>Evaluasi Heuristik</h1>
+                <div class="subtitle">Berdasarkan 10 Prinsip Usability Nielsen</div>
+                
+                <form id="form-identitas">
+                    <h3 style="border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;">Identitas Evaluator</h3>
+                    
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap Anda">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instansi">Instansi / Organisasi</label>
+                        <input type="text" id="instansi" class="form-control" required placeholder="Masukkan asal instansi/organisasi">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bidang">Bidang Keahlian</label>
+                        <input type="text" id="bidang" class="form-control" required placeholder="Contoh: UI/UX Designer, System Analyst, dsb.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Evaluasi</label>
+                        <input type="date" id="tanggal" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Mulai Evaluasi &rarr;</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- HALAMAN EVALUASI -->
+        <div id="evaluation-page" class="page">
+            <div style="text-align: center; margin-bottom: 40px; position: relative;">
+                <h1>Form Evaluasi Heuristik</h1>
+                <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 20px;">Silakan isi temuan masalah usability pada setiap prinsip heuristik di bawah ini.</p>
+                <button type="button" onclick="resetProgress()" style="background: transparent; border: 1px solid var(--danger); color: var(--danger); padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; font-weight: 500;">&#10226; Hapus Semua Data & Mulai Ulang</button>
+            </div>
+            
+            <div class="sr-legend">
+                <h4>Keterangan Severity Rating (SR):</h4>
+                <ul>
+                    <li><span class="sr-badge" style="background:#4A5568;">0</span> Bukan masalah usability</li>
+                    <li><span class="sr-badge" style="background:#4299E1;">1</span> Masalah kosmetik (prioritas rendah)</li>
+                    <li><span class="sr-badge" style="background:#ECC94B; color: #744210;">2</span> Masalah minor (perlu diperbaiki)</li>
+                    <li><span class="sr-badge" style="background:#ED8936;">3</span> Masalah mayor (penting diperbaiki)</li>
+                    <li><span class="sr-badge" style="background:#E53E3E;">4</span> Masalah kritis (wajib segera diperbaiki)</li>
+                </ul>
+            </div>
+
+            <form id="form-evaluasi">
+                <div id="principles-container">
+                    <!-- JavaScript akan memuat prinsip-prinsip di sini -->
+                </div>
+                
+                <div class="card" style="text-align: center; margin-top: 40px; border-top: 6px solid var(--teal); background-color: var(--surface);">
+                    <h3 style="margin-bottom: 15px; font-size: 24px;">Selesai Evaluasi?</h3>
+                    <p style="margin-bottom: 25px; color: var(--text-muted);">Pastikan semua temuan telah diisi dengan benar sebelum mengirimkan hasil evaluasi.</p>
+                    <button type="submit" class="btn btn-primary" style="width: auto; padding: 16px 48px; background: linear-gradient(135deg, var(--teal), var(--teal-hover));">Submit Evaluasi</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Loader -->
+    <div class="overlay" id="overlay-loader">
+        <div class="loader-box">
+            <div class="spinner"></div>
+            <h3 style="margin-bottom: 10px;">Mengirim Data...</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0;">Mohon tunggu sebentar.</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-overlay" class="overlay">
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script>
+        // URL Google Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAOy-GqofPaCAL5K8ZCAaPBmZgjmvjxjrexsx-OYWOYz8ko5nbrtyggm5OfeDOigJK/exec";
+
+        // Fungsi Menampilkan Notifikasi Toast
+        function showToast(message, type = 'success') {
+            const overlay = document.getElementById('toast-overlay');
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            
+            const icon = type === 'success' 
+                ? '<svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>'
+                : '<svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>';
+                
+            toast.innerHTML = `
+                <div class="toast-icon">${icon}</div>
+                <div class="toast-message">${message}</div>
+            `;
+            
+            container.innerHTML = '';
+            container.appendChild(toast);
+            
+            overlay.classList.add('active');
+            
+            // Animate In
+            setTimeout(() => toast.classList.add('show'), 10);
+            
+            // Remove After
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                    overlay.classList.remove('active');
+                }, 300);
+            }, 3000);
+        }
+        // Data 10 Prinsip Heuristik Nielsen
+        const principles = [
+            {
+                id: 1,
+                title: "1. Visibility of System Status",
+                explanation: "Sistem harus selalu memberi informasi kepada pengguna tentang apa yang sedang terjadi melalui umpan balik yang sesuai dan tepat waktu.",
+                guidelines: [
+                    "Apakah ada indikator loading saat halaman sedang memuat konten?",
+                    "Apakah pengguna mendapat konfirmasi setelah mengirim data?",
+                    "Apakah menu/halaman yang sedang aktif ditandai dengan jelas?"
+                ]
+            },
+            {
+                id: 2,
+                title: "2. Match Between System and the Real World",
+                explanation: "Sistem harus menggunakan bahasa dan konsep yang familiar bagi pengguna sehari-hari, bukan istilah teknis.",
+                guidelines: [
+                    "Apakah bahasa di menu navigasi mudah dipahami orang awam?",
+                    "Apakah ikon atau simbol sesuai makna yang umum dikenal?",
+                    "Apakah urutan informasi sesuai alur berpikir pengguna awam?"
+                ]
+            },
+            {
+                id: 3,
+                title: "3. User Control and Freedom",
+                explanation: "Pengguna harus bisa membatalkan atau mengulang tindakan dengan mudah saat melakukan kesalahan navigasi.",
+                guidelines: [
+                    "Apakah tersedia tombol Kembali atau navigasi jelas tiap halaman?",
+                    "Apakah pengguna bisa kembali ke halaman utama dari manapun?",
+                    "Apakah ada breadcrumb atau petunjuk posisi halaman?"
+                ]
+            },
+            {
+                id: 4,
+                title: "4. Consistency and Standards",
+                explanation: "Tampilan, label, dan fungsi yang sama harus konsisten di seluruh halaman website agar pengguna tidak bingung.",
+                guidelines: [
+                    "Apakah desain tombol, warna, dan font konsisten di semua halaman?",
+                    "Apakah label menu menggunakan format penulisan yang seragam?",
+                    "Apakah tata letak antar halaman memiliki pola yang konsisten?"
+                ]
+            },
+            {
+                id: 5,
+                title: "5. Error Prevention",
+                explanation: "Sistem dirancang untuk mencegah kesalahan terjadi sebelum pengguna melakukannya, bukan hanya menampilkan error.",
+                guidelines: [
+                    "Apakah semua tautan berfungsi dan tidak ada yang broken?",
+                    "Apakah form dilengkapi validasi atau petunjuk pengisian?",
+                    "Apakah tindakan berisiko dilindungi dengan konfirmasi?"
+                ]
+            },
+            {
+                id: 6,
+                title: "6. Recognition Rather Than Recall",
+                explanation: "Informasi dan pilihan harus terlihat jelas sehingga pengguna tidak perlu mengingat dari halaman sebelumnya.",
+                guidelines: [
+                    "Apakah menu navigasi selalu terlihat di setiap halaman?",
+                    "Apakah informasi penting tidak tersembunyi di sub-menu dalam?",
+                    "Apakah pengguna bisa langsung tahu apa yang bisa dilakukan?"
+                ]
+            },
+            {
+                id: 7,
+                title: "7. Flexibility and Efficiency of Use",
+                explanation: "Sistem harus bisa digunakan secara efisien baik oleh pengguna pemula maupun yang sudah berpengalaman.",
+                guidelines: [
+                    "Apakah website mudah digunakan pengguna baru pertama kali?",
+                    "Apakah informasi yang sering dicari mudah ditemukan cepat?",
+                    "Apakah website responsif dan bisa diakses via mobile?"
+                ]
+            },
+            {
+                id: 8,
+                title: "8. Aesthetic and Minimalist Design",
+                explanation: "Tampilan harus bersih dan hanya menampilkan informasi yang relevan. Konten berlebih bisa mengaburkan info penting.",
+                guidelines: [
+                    "Apakah tampilan bersih dan tidak penuh elemen tidak perlu?",
+                    "Apakah ukuran font dan kontras warna nyaman dibaca?",
+                    "Apakah gambar dan banner mendukung informasi, bukan hiasan?"
+                ]
+            },
+            {
+                id: 9,
+                title: "9. Help Users Recognize, Diagnose, and Recover from Errors",
+                explanation: "Pesan kesalahan harus ditulis dengan bahasa mudah dipahami, menjelaskan masalah, dan memberikan solusi jelas.",
+                guidelines: [
+                    "Apakah halaman error 404 ada info jelas dan tautan kembali?",
+                    "Apakah pesan error ditulis dalam bahasa yang mudah dipahami?",
+                    "Apakah ada petunjuk solusi saat pengguna menghadapi masalah?"
+                ]
+            },
+            {
+                id: 10,
+                title: "10. Help and Documentation",
+                explanation: "Meskipun sistem idealnya bisa digunakan tanpa bantuan, panduan atau dokumentasi tetap perlu tersedia dan mudah dicari.",
+                guidelines: [
+                    "Apakah tersedia halaman kontak atau bantuan yang mudah ditemukan?",
+                    "Apakah ada FAQ atau panduan untuk pengunjung baru?",
+                    "Apakah info kontak sekolah tersedia dan mudah diakses?"
+                ]
+            }
+        ];
+
+        // Set tanggal hari ini sebagai default di form
+        document.getElementById('tanggal').valueAsDate = new Date();
+
+        // Load progres dari localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('heuristic_progress');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    if (data.identitas) {
+                        if(data.identitas.nama) document.getElementById('nama').value = data.identitas.nama;
+                        if(data.identitas.instansi) document.getElementById('instansi').value = data.identitas.instansi;
+                        if(data.identitas.bidang) document.getElementById('bidang').value = data.identitas.bidang;
+                        if(data.identitas.tanggal) document.getElementById('tanggal').value = data.identitas.tanggal;
+                    }
+                    return data.evaluasi;
+                } catch(e) {
+                    console.error("Gagal memuat progres", e);
+                }
+            }
+            return null;
+        }
+
+        // Render prinsip-prinsip heuristik
+        function renderPrinciples(savedEvaluasi = null) {
+            const container = document.getElementById('principles-container');
+            
+            principles.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'heuristic-container';
+                
+                let guidelinesHtml = p.guidelines.map(g => `<li>${g}</li>`).join('');
+                
+                div.innerHTML = `
+                    <div class="heuristic-header">
+                        <h3>${p.title}</h3>
+                    </div>
+                    <div class="heuristic-desc">
+                        <div class="explanation">${p.explanation}</div>
+                        <ul>${guidelinesHtml}</ul>
+                    </div>
+                    <div class="findings-section" id="findings-${p.id}">
+                        <!-- Baris temuan akan diinjeksi di sini -->
+                    </div>
+                    <div class="add-finding-container">
+                        <button type="button" class="btn btn-teal" onclick="addFinding(${p.id})">+ Tambah Temuan</button>
+                    </div>
+                `;
+                
+                container.appendChild(div);
+                
+                // Tambahkan baris sesuai progres, atau 1 baris kosong jika baru
+                if (savedEvaluasi && savedEvaluasi[p.id] && savedEvaluasi[p.id].length > 0) {
+                    savedEvaluasi[p.id].forEach(savedData => addFinding(p.id, savedData));
+                } else {
+                    addFinding(p.id);
+                }
+            });
+        }
+
+        // Tambah baris temuan
+        function addFinding(principleId, savedData = null) {
+            const container = document.getElementById(`findings-${principleId}`);
+            const rowCount = container.children.length;
+            const rowId = `p${principleId}_f${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+            
+            const row = document.createElement('div');
+            row.className = 'finding-row';
+            row.id = rowId;
+            
+            // Tombol hapus hanya muncul jika bukan baris pertama
+            const removeBtnHtml = rowCount > 0 ? `
+                <div class="remove-btn-wrapper">
+                    <button type="button" class="btn btn-danger" title="Hapus temuan ini" onclick="removeFinding('${rowId}')">&times;</button>
+                </div>
+            ` : '';
+            const srLabels = {
+                0: "Bukan Masalah",
+                1: "Kosmetik",
+                2: "Minor",
+                3: "Mayor",
+                4: "Kritis"
+            };
+
+            const srOptionsHtml = [0, 1, 2, 3, 4].map(sr => {
+                const isChecked = savedData && parseInt(savedData.srInput) === sr ? 'checked' : '';
+                return `
+                <label class="sr-option" title="${srLabels[sr]}">
+                    <input type="radio" name="sr_${rowId}" value="${sr}" ${isChecked}> 
+                    <span><strong style="font-size: 16px;">${sr}</strong> - ${srLabels[sr]}</span>
+                </label>
+                `;
+            }).join('');
+
+            const pageVal = savedData && savedData.pageInput ? savedData.pageInput.replace(/"/g, '&quot;') : '';
+            const descVal = savedData && savedData.descInput ? savedData.descInput.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+
+            row.innerHTML = `
+                ${removeBtnHtml}
+                <div class="finding-col">
+                    <div class="form-group">
+                        <label>Halaman / Menu yang Bermasalah</label>
+                        <input type="text" class="form-control" name="page_${principleId}[]" value="${pageVal}" required placeholder="Contoh: Beranda, Form Login, dll.">
+                    </div>
+                </div>
+                
+                <div class="finding-col">
+                    <div class="form-group">
+                        <label>Deskripsi Masalah</label>
+                        <textarea class="form-control" name="desc_${principleId}[]" required placeholder="Jelaskan masalah usability yang ditemukan secara spesifik...">${descVal}</textarea>
+                    </div>
+                </div>
+                
+                <div class="finding-col-sr">
+                    <div class="form-group">
+                        <label>Severity Rating (SR)</label>
+                        <div class="sr-options">
+                            ${srOptionsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(row);
+            
+            // Update progres tiap kali baris baru dibuat (misal via tombol klik)
+            if (!savedData) saveProgress();
+        }
+
+        // Hapus baris temuan
+        function removeFinding(rowId) {
+            const row = document.getElementById(rowId);
+            if (row) {
+                // Add tiny animation out
+                row.style.opacity = '0';
+                row.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    row.remove();
+                    saveProgress();
+                }, 200);
+            }
+        }
+
+        // Auto Save Logika
+        function saveProgress() {
+            const identitas = {
+                nama: document.getElementById('nama').value,
+                instansi: document.getElementById('instansi').value,
+                bidang: document.getElementById('bidang').value,
+                tanggal: document.getElementById('tanggal').value
+            };
+            
+            const evaluasi = {};
+            principles.forEach(p => {
+                const container = document.getElementById(`findings-${p.id}`);
+                if (!container) return;
+                const rows = container.querySelectorAll('.finding-row');
+                const findings = [];
+                rows.forEach(row => {
+                    const pageInput = row.querySelector(`input[name="page_${p.id}[]"]`).value;
+                    const descInput = row.querySelector(`textarea[name="desc_${p.id}[]"]`).value;
+                    const srInput = row.querySelector(`input[type="radio"]:checked`)?.value;
+                    findings.push({ pageInput, descInput, srInput });
+                });
+                evaluasi[p.id] = findings;
+            });
+            
+            localStorage.setItem('heuristic_progress', JSON.stringify({ identitas, evaluasi }));
+        }
+
+        // Reset Progres
+        function resetProgress() {
+            if (confirm("Apakah Anda yakin ingin menghapus seluruh isian dan memulai ulang dari halaman awal? Semua data yang belum ter-submit akan hilang.")) {
+                localStorage.removeItem('heuristic_progress');
+                localStorage.removeItem('heuristic_page');
+                location.reload();
+            }
+        }
+
+        document.addEventListener('input', () => {
+            // Gunakan sedikit jeda agar tidak terlalu berat saat mengetik cepat
+            clearTimeout(window.saveTimeout);
+            window.saveTimeout = setTimeout(saveProgress, 500);
+        });
+        document.addEventListener('change', saveProgress);
+
+        // Handle Transisi Halaman (Intro ke Identitas)
+        document.getElementById('btn-lanjut-identitas').addEventListener('click', function() {
+            localStorage.setItem('heuristic_page', 'identitas');
+            
+            const intro = document.getElementById('intro-page');
+            const landing = document.getElementById('landing-page');
+            
+            intro.style.opacity = '0';
+            intro.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                intro.classList.remove('active');
+                landing.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        });
+
+        // Handle Transisi Halaman (Identitas ke Evaluasi)
+        document.getElementById('form-identitas').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simpan posisi halaman saat ini
+            localStorage.setItem('heuristic_page', 'evaluation');
+            saveProgress();
+            
+            const landing = document.getElementById('landing-page');
+            const evalPage = document.getElementById('evaluation-page');
+            
+            landing.style.opacity = '0';
+            landing.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                landing.classList.remove('active');
+                evalPage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        });
+
+        // Handle Submit Data Evaluasi
+        document.getElementById('form-evaluasi').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validasi manual radio box SR
+            let isValid = true;
+            let firstInvalidRow = null;
+            
+            principles.forEach(p => {
+                const container = document.getElementById(`findings-${p.id}`);
+                if (!container) return;
+                const rows = container.querySelectorAll('.finding-row');
+                
+                rows.forEach(row => {
+                    const pageInput = row.querySelector(`input[name="page_${p.id}[]"]`).value;
+                    const descInput = row.querySelector(`textarea[name="desc_${p.id}[]"]`).value;
+                    const srInput = row.querySelector(`input[type="radio"]:checked`);
+                    const srContainer = row.querySelector('.sr-options');
+                    
+                    // Kalau text/halaman diisi ATAU default baris pertama ada isinya/diwajibkan, SR harus dipilih
+                    if ((pageInput || descInput || true) && !srInput) {
+                        isValid = false;
+                        if (!firstInvalidRow) firstInvalidRow = row;
+                        
+                        srContainer.style.outline = '2px dashed var(--danger)';
+                        srContainer.style.outlineOffset = '8px';
+                        srContainer.style.borderRadius = '6px';
+                    } else {
+                        srContainer.style.outline = 'none';
+                    }
+                });
+            });
+            
+            if (!isValid) {
+                showToast("Peringatan: Masih ada Severity Rating (SR) yang belum dipilih!", "error");
+                if (firstInvalidRow) {
+                    firstInvalidRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return; // Hentikan proses submit
+            }
+            
+            // 1. Kumpulkan Data Identitas
+            const evaluator = {
+                nama: document.getElementById('nama').value,
+                Nama: document.getElementById('nama').value,
+                instansi: document.getElementById('instansi').value,
+                Instansi: document.getElementById('instansi').value,
+                bidang: document.getElementById('bidang').value,
+                "Bidang Keahlian": document.getElementById('bidang').value,
+                Bidang: document.getElementById('bidang').value,
+                tanggal: document.getElementById('tanggal').value,
+                Tanggal: document.getElementById('tanggal').value
+            };
+            
+            // 2. Kumpulkan Data Temuan
+            const evaluationData = [];
+            
+            principles.forEach(p => {
+                const container = document.getElementById(`findings-${p.id}`);
+                const rows = container.querySelectorAll('.finding-row');
+                const findings = [];
+                
+                rows.forEach(row => {
+                    const pageInput = row.querySelector(`input[name="page_${p.id}[]"]`).value;
+                    const descInput = row.querySelector(`textarea[name="desc_${p.id}[]"]`).value;
+                    const srInput = row.querySelector(`input[type="radio"]:checked`)?.value;
+                    
+                    if (pageInput || descInput || srInput) {
+                        findings.push({
+                            halaman: pageInput,
+                            deskripsi: descInput,
+                            sr: srInput ? parseInt(srInput) : null
+                        });
+                    }
+                });
+                
+                if (findings.length > 0) {
+                    evaluationData.push({
+                        nama: p.title, // Apps script mencari prinsip.nama
+                        temuan: findings
+                    });
+                }
+            });
+            
+            // 3. Susun Payload JSON (menyamakan persis dengan ekstrak {nama, instansi, bidang, tanggal, evaluasi} di Apps Script)
+            const payload = {
+                nama: evaluator.nama,
+                instansi: evaluator.instansi,
+                bidang: evaluator.bidang,
+                tanggal: evaluator.tanggal,
+                evaluasi: evaluationData
+            };
+            
+            // 4. Validasi URL App Script
+            if(SCRIPT_URL === "ISI_URL_APPS_SCRIPT_DISINI") {
+                console.log("Data Payload:", JSON.stringify(payload, null, 2));
+                showToast("Peringatan: URL Apps Script belum diatur!", "error");
+                return;
+            }
+            
+            // 5. Kirim Data
+            document.getElementById('overlay-loader').classList.add('active');
+            
+            // Menggunakan text/plain untuk menghindari CORS preflight OPTIONS request
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                }
+            })
+            .then(response => {
+                document.getElementById('overlay-loader').classList.remove('active');
+                // Asumsi fetch berhasil (Apps Script merespon sukses)
+                showToast("Sukses! Data evaluasi berhasil dikirim.", "success");
+                
+                // Hapus memori progres karena sudah selesai
+                localStorage.removeItem('heuristic_progress');
+                localStorage.removeItem('heuristic_page');
+                
+                // Reload halaman setelah sukses agar toast sempat terlihat
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+            })
+            .catch(error => {
+                document.getElementById('overlay-loader').classList.remove('active');
+                showToast("Terjadi kesalahan saat mengirim data. Pastikan koneksi internet stabil.", "error");
+                console.error("Fetch Error:", error);
+            });
+        });
+
+        // Inisialisasi awal
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedEvaluasi = loadProgress();
+            renderPrinciples(savedEvaluasi);
+            
+            const currentPage = localStorage.getItem('heuristic_page');
+            const intro = document.getElementById('intro-page');
+            const landing = document.getElementById('landing-page');
+            const evalPage = document.getElementById('evaluation-page');
+            
+            if (currentPage === 'identitas') {
+                intro.classList.remove('active');
+                landing.classList.add('active');
+            } else if (currentPage === 'evaluation') {
+                intro.classList.remove('active');
+                evalPage.classList.add('active');
+            }
+        });
+
+    </script>
+</body>
+</html>
