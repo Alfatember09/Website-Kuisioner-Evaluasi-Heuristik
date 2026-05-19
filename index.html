@@ -65,8 +65,11 @@
 
         <!-- HALAMAN IDENTITAS -->
         <div id="landing-page" class="page">
-            <div class="card" style="position: relative;">
-                <button type="button" onclick="resetProgress()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--danger); font-size: 14px; cursor: pointer; text-decoration: underline;">Reset & Mulai Ulang</button>
+            <div class="card">
+                <div class="page-navigation">
+                    <button type="button" class="btn-back" onclick="goBack('landing-page', 'intro-page', '')">&larr; Kembali</button>
+                    <button type="button" class="btn-text-danger" onclick="resetProgress()">Reset & Mulai Ulang</button>
+                </div>
                 <h1>Evaluasi Heuristik</h1>
                 <div class="subtitle">Berdasarkan 10 Prinsip Usability Nielsen</div>
                 
@@ -100,10 +103,13 @@
 
         <!-- HALAMAN EVALUASI -->
         <div id="evaluation-page" class="page">
-            <div style="text-align: center; margin-bottom: 40px; position: relative;">
+            <div class="page-navigation">
+                <button type="button" class="btn-back" onclick="goBack('evaluation-page', 'landing-page', 'identitas')">&larr; Kembali</button>
+                <button type="button" class="btn-text-danger" onclick="resetProgress()" style="text-decoration: none; border: 1px solid var(--danger); border-radius: 6px;">&#10226; Hapus Data</button>
+            </div>
+            <div style="text-align: center; margin-bottom: 40px;">
                 <h1>Form Evaluasi Heuristik</h1>
                 <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 20px;">Silakan isi temuan masalah usability pada setiap prinsip heuristik di bawah ini.</p>
-                <button type="button" onclick="resetProgress()" style="background: transparent; border: 1px solid var(--danger); color: var(--danger); padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; font-weight: 500;">&#10226; Hapus Semua Data & Mulai Ulang</button>
             </div>
             
             <div class="sr-legend">
@@ -473,6 +479,30 @@
         });
         document.addEventListener('change', saveProgress);
 
+        // Fungsi untuk tombol kembali
+        function goBack(currentId, targetId, storageState) {
+            if (storageState) {
+                localStorage.setItem('heuristic_page', storageState);
+            } else {
+                localStorage.removeItem('heuristic_page');
+            }
+            
+            const current = document.getElementById(currentId);
+            const target = document.getElementById(targetId);
+            
+            current.style.opacity = '0';
+            current.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                current.classList.remove('active');
+                current.style.opacity = '';
+                current.style.transform = '';
+                
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
         // Handle Transisi Halaman (Intro ke Identitas)
         document.getElementById('btn-lanjut-identitas').addEventListener('click', function() {
             localStorage.setItem('heuristic_page', 'identitas');
@@ -485,6 +515,9 @@
             
             setTimeout(() => {
                 intro.classList.remove('active');
+                intro.style.opacity = '';
+                intro.style.transform = '';
+                
                 landing.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 300);
@@ -506,6 +539,9 @@
             
             setTimeout(() => {
                 landing.classList.remove('active');
+                landing.style.opacity = '';
+                landing.style.transform = '';
+                
                 evalPage.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 300);

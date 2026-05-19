@@ -208,6 +208,49 @@ textarea.form-control {
     transform: rotate(90deg) scale(1.1);
 }
 
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.btn-back {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    margin-left: -12px;
+}
+.btn-back:hover {
+    color: var(--primary-blue);
+    background: var(--light-blue);
+}
+.btn-text-danger {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 8px 12px;
+    margin-right: -12px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+.btn-text-danger:hover {
+    background: #FFF5F5;
+}
+
 /* Tabel Evaluasi */
 .heuristic-container {
     border: 1px solid var(--border-color);
